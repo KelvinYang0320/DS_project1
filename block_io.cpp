@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include <fstream> 
 using namespace std;
 class block{
     public:
@@ -199,29 +200,31 @@ class Blocks{
     private:
         block *smArray;
 };
+
 int main(void)
 {
-    freopen("test.txt","r",stdin);
+    fstream fin;
+    fin.open("test.data",ios::in);
     int Map_r, Map_c;
     int row, col;
     char block_type;
     int block_rot;
     int drop_point;
     Blocks *tmp;
-    cin>>Map_r>>Map_c;
+    fin>>Map_r>>Map_c;
     cout<<"Map Size:"<<Map_r<<"*"<<Map_c<<endl;
     while(1){
-        cin>>block_type;
+        fin>>block_type;
         if(block_type == 'E') break;
         else if(block_type == 'T' || block_type == 'L' ||
                 block_type == 'J' || block_type == 'S' || 
-                block_type == 'Z' || block_type == 'I') cin>>block_rot;
+                block_type == 'Z' || block_type == 'I') fin>>block_rot;
         else if(block_type != 'O'){
             cout<<"[Error]"<<block_type<<endl;
             break;
         }
         tmp = new Blocks(block_type, block_rot);
-        cin>>drop_point;
+        fin>>drop_point;
         cout<<block_type<<block_rot<<" "<<drop_point<<endl;
         tmp->show_all_pos();
     }
