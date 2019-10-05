@@ -385,7 +385,7 @@ class Map{
             for(int i=fix;i<fix+b->col_num;i++){
                 for(int j=Map_r+3;j>=0;j--){
                     if(m[j][i]==1||j==0){
-                        if(j==0)find_pos[i-fix]=0;
+                        if(j==0&&m[j][i]==0)find_pos[i-fix]=0;
                         else find_pos[i-fix]=j+1;
                         break;
                     }
@@ -446,7 +446,7 @@ class Map{
 int main(void)
 {
     fstream fin;
-    fin.open("test.data",ios::in);
+    fin.open("test1.data",ios::in);
     int Map_r, Map_c;
     int row, col;
     char block_type;
@@ -481,3 +481,4 @@ int main(void)
     M->showfinal_map();
     return 0;
 }
+
