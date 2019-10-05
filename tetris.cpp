@@ -89,7 +89,7 @@ class Blocks{
                             col_hight[1]=1;
                             break;
                         default:
-                            cout<<"[T]Unrecognized Type"<<endl;
+                            cout<<"[T]Unrecognized Type"<<endl;//error_msg
                             break;
                     }
                     break;
@@ -146,7 +146,7 @@ class Blocks{
                             col_hight[2]=0;
                             break;
                         default:
-                            cout<<"[L]Unrecognized Type"<<endl;
+                            cout<<"[L]Unrecognized Type"<<endl;//error_msg
                             break;
                     }
                     break;
@@ -203,7 +203,7 @@ class Blocks{
                             col_hight[2]=0;
                             break;
                         default:
-                            cout<<"[J]Unrecognized Type"<<endl;
+                            cout<<"[J]Unrecognized Type"<<endl;//error_msg
                             break;
                     }
                     break;
@@ -235,7 +235,7 @@ class Blocks{
                             col_hight[1]=0;
                             break;
                         default:
-                            cout<<"[S]Unrecognized Type"<<endl;
+                            cout<<"[S]Unrecognized Type"<<endl;//error_msg
                             break;
                     }
                     break;
@@ -267,7 +267,7 @@ class Blocks{
                             col_hight[1]=1;
                             break;
                         default:
-                            cout<<"[Z]Unrecognized Type"<<endl;
+                            cout<<"[Z]Unrecognized Type"<<endl;//error_msg
                             break;
                     }
                     break;
@@ -299,7 +299,7 @@ class Blocks{
                             col_hight[3]=0;
                             break;
                         default:
-                            cout<<"[I]Unrecognized Type"<<endl;
+                            cout<<"[I]Unrecognized Type"<<endl; //error_msg
                             break;
                     }
                     break;
@@ -316,7 +316,7 @@ class Blocks{
                     col_hight[1]=0;
                     break;
                 default:
-                    cout<<"Unrecognized Type"<<endl;
+                    cout<<"Unrecognized Type"<<endl; //error_msg
                     break;
             }
         }
@@ -353,12 +353,24 @@ class Map{
         void clean_a_row(int row_pos){
             delete [] m[row_pos];
             m[row_pos] = new bool[Map_c];
-            for(int i=row_pos;i<Map_r-1;i++){
+            for(int i=row_pos;i<Map_r+3;i++){
                 m[i]=m[i+1];
-                delete []m[i+1];
                 m[i+1] = new bool[Map_c];
             }
         };
+        void check_clean(void){
+            int cnt;
+            for(int i = 0; i<(Map_r+4); i++){
+                cnt=0;
+                for(int j =0; j<Map_c;j++){
+                    cnt=cnt+m[i][j];
+                }
+                if(cnt==Map_c){
+                    clean_a_row(i);
+                    i=i-1;
+                }
+            }
+        }
         //return 1 means gameover 
         int block_drop(int drop_point, Blocks* b){
             int fix = drop_point-1;
@@ -366,7 +378,7 @@ class Map{
             int cmp=-1;
             int h;
             if((fix+b->col_num-1)>=Map_c||fix<0){
-                cout<<b->name<<":wrong dropping point"<<endl;
+                cout<<b->name<<":wrong dropping point"<<endl; //erroe_msg
                 return 1;//wrong drop point
             }
             find_pos=new int[b->col_num];
@@ -386,11 +398,7 @@ class Map{
             }
             for(int i =0;i<4;i++){
                 if(m[cmp+b->smArray[i].row][fix+b->smArray[i].col]==1){
-                    cout<<"There is another block here!("<<cmp+b->smArray[i].row<<","<<fix+b->smArray[i].col<<")"<<endl;
-                    cout<<"cmp="<<cmp<<endl;
-                    for(int i=0;i<3;i++){
-                        cout<<find_pos[i]<<endl;
-                    }
+                    cout<<"There is a block here!("<<cmp+b->smArray[i].row<<","<<fix+b->smArray[i].col<<")"<<endl;//error_msg
                     return 1;
                 }
                 else
@@ -399,13 +407,14 @@ class Map{
             return 0;
         }
         int check4(void){//return 1 if gameover
-            for(int i=Map_c;i<Map_c+4;i++){
+            for(int i=Map_r;i<Map_r+4;i++){
                 for(int j=0;j<Map_c;j++){
-                    if(m[i][j])
+                    if(m[i][j]){
+                        //cout<<"over limited hight("<<i<<","<<j<<")"<<endl;//error_msg
                         return 1;
+                    }
                 }
             }
-            cout<<"over limited hight"<<endl;
             return 0;
         }
         void show_map(void){
@@ -418,6 +427,14 @@ class Map{
                 if(i==Map_r){
                     cout<<"_________________"<<endl;
                 }
+            }
+        }
+        void showfinal_map(void){
+            for(int i =Map_r-1;i>=0;i--){
+                for(int j=0;j<Map_c;j++){
+                    cout<<m[i][j];
+                }
+                cout<<endl;
             }
         }
     private:
@@ -438,9 +455,9 @@ int main(void)
     Map *M;
     Blocks *tmp;
     fin>>Map_r>>Map_c;
-    cout<<"Map Size:"<<Map_r<<"*"<<Map_c<<endl;
+    //cout<<"Map Size:"<<Map_r<<"*"<<Map_c<<endl;
     M=new Map(Map_r, Map_c);
-    M->show_map();
+    //M->show_map();
     while(1){
         fin>>block_type;
         if(block_type == 'E') break;
@@ -448,16 +465,19 @@ int main(void)
                 block_type == 'J' || block_type == 'S' || 
                 block_type == 'Z' || block_type == 'I') fin>>block_rot;
         else if(block_type != 'O'){
-            cout<<"[Error]"<<block_type<<endl;
+            cout<<"[Error]"<<block_type<<endl;//error_msg
             break;
         }
         tmp = new Blocks(block_type, block_rot);
         fin>>drop_point;
         //cout<<block_type<<block_rot<<" "<<drop_point<<endl;
-        tmp->show_name();
+        //tmp->show_name();
         //tmp->show_all_pos();
         if(M->block_drop(drop_point, tmp))break;
-        M->show_map();
+        M->check_clean();
+        if(M->check4())break;
+        //M->show_map();
     }
+    M->showfinal_map();
     return 0;
 }
