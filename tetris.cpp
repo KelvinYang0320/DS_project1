@@ -31,7 +31,8 @@ class Blocks{
             smArray = nullptr;
             name = "no_name";
             col_num = 0;
-            row_num = 0;
+            col_height = nullptr;
+            //row_num = 0;
         }
         Blocks(char type, int rot){
             smArray = new block [4];
@@ -45,11 +46,11 @@ class Blocks{
                             smArray[3]=block(1,2);
                             name = "T1";
                             col_num = 3;
-                            row_num=2;
-                            col_hight = new int [col_num];
-                            col_hight[0]=1;
-                            col_hight[1]=0;
-                            col_hight[2]=1;
+                            //row_num=2;
+                            col_height = new int [col_num];
+                            col_height[0]=1;
+                            col_height[1]=0;
+                            col_height[2]=1;
                             break;
                         case 2:
                             smArray[0]=block(0,1);
@@ -58,10 +59,10 @@ class Blocks{
                             smArray[3]=block(2,1);
                             name = "T2";
                             col_num=2;
-                            row_num=3;
-                            col_hight = new int [col_num];
-                            col_hight[0]=1;
-                            col_hight[1]=0; 
+                            //row_num=3;
+                            col_height = new int [col_num];
+                            col_height[0]=1;
+                            col_height[1]=0; 
                             break;
                         case 3:
                             smArray[0]=block(0,0);
@@ -70,11 +71,11 @@ class Blocks{
                             smArray[3]=block(1,1);
                             name = "T3";
                             col_num=3;
-                            row_num=2;
-                            col_hight = new int [col_num];
-                            col_hight[0]=0;
-                            col_hight[1]=0;
-                            col_hight[2]=0;
+                            //row_num=2;
+                            col_height = new int [col_num];
+                            col_height[0]=0;
+                            col_height[1]=0;
+                            col_height[2]=0;
                             break;
                         case 4:
                             smArray[0]=block(0,0);
@@ -83,10 +84,10 @@ class Blocks{
                             smArray[3]=block(2,0);
                             name = "T4";
                             col_num=2;
-                            row_num=3;
-                            col_hight = new int [col_num];
-                            col_hight[0]=0;
-                            col_hight[1]=1;
+                            //row_num=3;
+                            col_height = new int [col_num];
+                            col_height[0]=0;
+                            col_height[1]=1;
                             break;
                         default:
                             cout<<"[T]Unrecognized Type"<<endl;//error_msg
@@ -102,10 +103,10 @@ class Blocks{
                             smArray[3]=block(2,0);
                             name = "L1";
                             col_num=2;
-                            row_num=3;
-                            col_hight = new int [col_num];
-                            col_hight[0]=0;
-                            col_hight[1]=0;
+                            //row_num=3;
+                            col_height = new int [col_num];
+                            col_height[0]=0;
+                            col_height[1]=0;
                             break;
                         case 2:
                             smArray[0]=block(0,0);
@@ -114,11 +115,11 @@ class Blocks{
                             smArray[3]=block(1,2);
                             name = "L2";
                             col_num=3;
-                            row_num=2;
-                            col_hight = new int [col_num];
-                            col_hight[0]=0;
-                            col_hight[1]=1;
-                            col_hight[2]=1;
+                            //row_num=2;
+                            col_height = new int [col_num];
+                            col_height[0]=0;
+                            col_height[1]=1;
+                            col_height[2]=1;
                             break;
                         case 3:
                             smArray[0]=block(0,1);
@@ -127,10 +128,10 @@ class Blocks{
                             smArray[3]=block(2,1);
                             name = "L3";
                             col_num=2;
-                            row_num=3;
-                            col_hight = new int [col_num];
-                            col_hight[0]=2;
-                            col_hight[1]=0;
+                            //row_num=3;
+                            col_height = new int [col_num];
+                            col_height[0]=2;
+                            col_height[1]=0;
                             break;
                         case 4:
                             smArray[0]=block(0,0);
@@ -139,11 +140,11 @@ class Blocks{
                             smArray[3]=block(1,2);
                             name = "L4";
                             col_num=3;
-                            row_num=2;
-                            col_hight = new int [col_num];
-                            col_hight[0]=0;
-                            col_hight[1]=0;
-                            col_hight[2]=0;
+                            //row_num=2;
+                            col_height = new int [col_num];
+                            col_height[0]=0;
+                            col_height[1]=0;
+                            col_height[2]=0;
                             break;
                         default:
                             cout<<"[L]Unrecognized Type"<<endl;//error_msg
@@ -159,10 +160,10 @@ class Blocks{
                             smArray[3]=block(2,1);
                             name = "J1";
                             col_num=2;
-                            row_num=3;
-                            col_hight = new int [col_num];
-                            col_hight[0]=0;
-                            col_hight[1]=0;
+                            //row_num=3;
+                            col_height = new int [col_num];
+                            col_height[0]=0;
+                            col_height[1]=0;
                             break;
                         case 2:
                             smArray[0]=block(0,0);
@@ -171,11 +172,11 @@ class Blocks{
                             smArray[3]=block(1,0);
                             name = "J2";
                             col_num=3;
-                            row_num=2;
-                            col_hight = new int [col_num];
-                            col_hight[0]=0;
-                            col_hight[1]=0;
-                            col_hight[2]=0;
+                            //row_num=2;
+                            col_height = new int [col_num];
+                            col_height[0]=0;
+                            col_height[1]=0;
+                            col_height[2]=0;
                             break;
                         case 3:
                             smArray[0]=block(0,0);
@@ -184,10 +185,10 @@ class Blocks{
                             smArray[3]=block(2,1);
                             name = "J3";
                             col_num=2;
-                            row_num=3;
-                            col_hight = new int [col_num];
-                            col_hight[0]=0;
-                            col_hight[1]=2;
+                            //row_num=3;
+                            col_height = new int [col_num];
+                            col_height[0]=0;
+                            col_height[1]=2;
                             break;
                         case 4:
                             smArray[0]=block(0,2);
@@ -196,11 +197,11 @@ class Blocks{
                             smArray[3]=block(1,2);
                             name = "J4";
                             col_num=3;
-                            row_num=2;
-                            col_hight = new int [col_num];
-                            col_hight[0]=1;
-                            col_hight[1]=1;
-                            col_hight[2]=0;
+                            //row_num=2;
+                            col_height = new int [col_num];
+                            col_height[0]=1;
+                            col_height[1]=1;
+                            col_height[2]=0;
                             break;
                         default:
                             cout<<"[J]Unrecognized Type"<<endl;//error_msg
@@ -216,11 +217,11 @@ class Blocks{
                             smArray[3]=block(1,2);
                             name = "S1";
                             col_num=3;
-                            row_num=2;
-                            col_hight = new int [col_num];
-                            col_hight[0]=0;
-                            col_hight[1]=0;
-                            col_hight[2]=1;
+                            //row_num=2;
+                            col_height = new int [col_num];
+                            col_height[0]=0;
+                            col_height[1]=0;
+                            col_height[2]=1;
                             break;
                         case 2:
                             smArray[0]=block(0,1);
@@ -229,10 +230,10 @@ class Blocks{
                             smArray[3]=block(2,0);
                             name = "S2";
                             col_num=2;
-                            row_num=3;
-                            col_hight = new int [col_num];
-                            col_hight[0]=1;
-                            col_hight[1]=0;
+                            //row_num=3;
+                            col_height = new int [col_num];
+                            col_height[0]=1;
+                            col_height[1]=0;
                             break;
                         default:
                             cout<<"[S]Unrecognized Type"<<endl;//error_msg
@@ -248,11 +249,11 @@ class Blocks{
                             smArray[3]=block(1,1);
                             name = "Z1";
                             col_num=3;
-                            row_num=2;
-                            col_hight = new int [col_num];
-                            col_hight[0]=1;
-                            col_hight[1]=0;
-                            col_hight[2]=0;
+                            //row_num=2;
+                            col_height = new int [col_num];
+                            col_height[0]=1;
+                            col_height[1]=0;
+                            col_height[2]=0;
                             break;
                         case 2:
                             smArray[0]=block(0,0);
@@ -261,10 +262,10 @@ class Blocks{
                             smArray[3]=block(2,1);
                             name = "Z2";
                             col_num=2;
-                            row_num=3;
-                            col_hight = new int [col_num];
-                            col_hight[0]=0;
-                            col_hight[1]=1;
+                            //row_num=3;
+                            col_height = new int [col_num];
+                            col_height[0]=0;
+                            col_height[1]=1;
                             break;
                         default:
                             cout<<"[Z]Unrecognized Type"<<endl;//error_msg
@@ -280,9 +281,9 @@ class Blocks{
                             smArray[3]=block(3,0);
                             name = "I1";
                             col_num=1;
-                            row_num=4;
-                            col_hight = new int [col_num];
-                            col_hight[0]=0;
+                            //row_num=4;
+                            col_height = new int [col_num];
+                            col_height[0]=0;
                             break;
                         case 2:
                             smArray[0]=block(0,0);
@@ -291,12 +292,12 @@ class Blocks{
                             smArray[3]=block(0,3);
                             name = "I2";
                             col_num=4;
-                            row_num=1;
-                            col_hight = new int [col_num];
-                            col_hight[0]=0;
-                            col_hight[1]=0;
-                            col_hight[2]=0;
-                            col_hight[3]=0;
+                            //row_num=1;
+                            col_height = new int [col_num];
+                            col_height[0]=0;
+                            col_height[1]=0;
+                            col_height[2]=0;
+                            col_height[3]=0;
                             break;
                         default:
                             cout<<"[I]Unrecognized Type"<<endl; //error_msg
@@ -310,15 +311,19 @@ class Blocks{
                     smArray[3]=block(1,1);
                     name = "O";
                     col_num=2;
-                    row_num=2;
-                    col_hight = new int [col_num];
-                    col_hight[0]=0;
-                    col_hight[1]=0;
+                    //row_num=2;
+                    col_height = new int [col_num];
+                    col_height[0]=0;
+                    col_height[1]=0;
                     break;
                 default:
                     cout<<"Unrecognized Type"<<endl; //error_msg
                     break;
             }
+        }
+        ~Blocks(){
+            delete [] smArray;
+            delete [] col_height;
         }
         void show_all_pos(void){
             for(int i=0;i<4;i++){
@@ -332,8 +337,8 @@ class Blocks{
         block *smArray;
         string name;
         int col_num;
-        int row_num;
-        int *col_hight;
+        //int row_num;
+        int *col_height;
 };
 class Map{
     public:
@@ -392,8 +397,8 @@ class Map{
                 }
             }
             for(int i=0;i<b->col_num;i++){
-                if(cmp<(find_pos[i]-b->col_hight[i])){
-                    cmp=find_pos[i]-b->col_hight[i];
+                if(cmp<(find_pos[i]-b->col_height[i])){
+                    cmp=find_pos[i]-b->col_height[i];
                 }
             }
             for(int i =0;i<4;i++){
@@ -429,7 +434,15 @@ class Map{
                 }
             }
         }
-        void showfinal_map(void){
+        void showfinal_map(fstream &fout){
+            for(int i =Map_r-1;i>=0;i--){
+                for(int j=0;j<Map_c;j++){
+                    fout<<m[i][j];
+                }
+                fout<<endl;
+            }
+        }
+        void showcout_map(void){
             for(int i =Map_r-1;i>=0;i--){
                 for(int j=0;j<Map_c;j++){
                     cout<<m[i][j];
@@ -446,7 +459,9 @@ class Map{
 int main(void)
 {
     fstream fin;
-    fin.open("test1.data",ios::in);
+    fstream fout;
+    fin.open("tetris.data",ios::in);
+    fout.open("tetris.final",ios::out);
     int Map_r, Map_c;
     int row, col;
     char block_type;
@@ -477,8 +492,9 @@ int main(void)
         M->check_clean();
         if(M->check4())break;
         //M->show_map();
+        delete tmp;
     }
-    M->showfinal_map();
+    M->showfinal_map(fout);
     return 0;
 }
 
