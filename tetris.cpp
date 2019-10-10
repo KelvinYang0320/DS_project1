@@ -460,8 +460,8 @@ int main(void)
 {
     fstream fin;
     fstream fout;
-    fin.open("tetris.data",ios::in);
-    fout.open("tetris.final",ios::out);
+    fin.open("Tetris.data",ios::in);
+    fout.open("Tetris.output",ios::out);
     int Map_r, Map_c;
     int row, col;
     char block_type;
@@ -495,6 +495,7 @@ int main(void)
         delete tmp;
     }
     M->showfinal_map(fout);
+    //M->showcout_map();
     return 0;
 }
 
