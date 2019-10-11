@@ -409,7 +409,7 @@ class Map{
             }
             for(int i =0;i<4;i++){
                 if(m[cmp+b->smArray[i].row][fix+b->smArray[i].col]==1){
-                    cout<<"There is a block here!("<<cmp+b->smArray[i].row<<","<<fix+b->smArray[i].col<<")"<<endl;//error_msg
+                    //cout<<"There is a block here!("<<cmp+b->smArray[i].row<<","<<fix+b->smArray[i].col<<")"<<endl;//error_msg
                     return 1;
                 }
                 else
@@ -421,7 +421,7 @@ class Map{
             for(int i=Map_r;i<Map_r+4;i++){
                 for(int j=0;j<Map_c;j++){
                     if(m[i][j]){
-                        cout<<"over limited hight("<<i<<","<<j<<")"<<endl;//error_msg
+                        //cout<<"over limited hight("<<i<<","<<j<<")"<<endl;//error_msg
                         return 1;
                     }
                 }
@@ -467,6 +467,7 @@ int main(void)
     fstream fin;
     fstream fout;
     fin.open("Tetris.data",ios::in);
+    //fin.open("3.data",ios::in);
     fout.open("Tetris.output",ios::out);
     int Map_r, Map_c;
     int row, col;
@@ -486,7 +487,7 @@ int main(void)
                 block_type == 'J' || block_type == 'S' ||
                 block_type == 'Z' || block_type == 'I') fin>>block_rot;
         else if(block_type != 'O'){
-            cout<<"[Error]"<<block_type<<endl;//error_msg
+            //cout<<"[Error]"<<block_type<<endl;//error_msg
             break;
         }
         tmp = new Blocks(block_type, block_rot);
@@ -501,7 +502,7 @@ int main(void)
         delete tmp;
     }
     M->showfinal_map(fout);
-    M->showcout_map();
+    //M->showcout_map();
     return 0;
 }
 
