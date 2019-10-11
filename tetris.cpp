@@ -1,6 +1,6 @@
 #include<iostream>
 #include<string>
-#include <fstream> 
+#include <fstream>
 using namespace std;
 class block{
     public:
@@ -62,7 +62,7 @@ class Blocks{
                             //row_num=3;
                             col_height = new int [col_num];
                             col_height[0]=1;
-                            col_height[1]=0; 
+                            col_height[1]=0;
                             break;
                         case 3:
                             smArray[0]=block(0,0);
@@ -356,16 +356,22 @@ class Map{
             this->Map_c=Map_c;
         }
         void clean_a_row(int row_pos){
-            delete [] m[row_pos];
-            m[row_pos] = new bool[Map_c];
             for(int i=row_pos;i<Map_r+3;i++){
+                delete [] m[i];
                 m[i]=m[i+1];
                 m[i+1] = new bool[Map_c];
             }
+            for(int i=0;i<Map_c;i++){
+                m[Map_r+3][i]=0;
+            }
+            /*
+            cout<<"["<<row_pos<<"]"<<endl;
+            show_map();
+            */
         };
         void check_clean(void){
             int cnt;
-            for(int i = 0; i<(Map_r+4); i++){
+            for(int i = 0; i<Map_r+4; i++){
                 cnt=0;
                 for(int j =0; j<Map_c;j++){
                     cnt=cnt+m[i][j];
@@ -376,7 +382,7 @@ class Map{
                 }
             }
         }
-        //return 1 means gameover 
+        //return 1 means gameover
         int block_drop(int drop_point, Blocks* b){
             int fix = drop_point-1;
             int *find_pos;
@@ -415,7 +421,7 @@ class Map{
             for(int i=Map_r;i<Map_r+4;i++){
                 for(int j=0;j<Map_c;j++){
                     if(m[i][j]){
-                        //cout<<"over limited hight("<<i<<","<<j<<")"<<endl;//error_msg
+                        cout<<"over limited hight("<<i<<","<<j<<")"<<endl;//error_msg
                         return 1;
                     }
                 }
@@ -477,7 +483,7 @@ int main(void)
         fin>>block_type;
         if(block_type == 'E') break;
         else if(block_type == 'T' || block_type == 'L' ||
-                block_type == 'J' || block_type == 'S' || 
+                block_type == 'J' || block_type == 'S' ||
                 block_type == 'Z' || block_type == 'I') fin>>block_rot;
         else if(block_type != 'O'){
             cout<<"[Error]"<<block_type<<endl;//error_msg
@@ -487,15 +493,16 @@ int main(void)
         fin>>drop_point;
         //cout<<block_type<<block_rot<<" "<<drop_point<<endl;
         //tmp->show_name();
+        //cout<< drop_point<<endl;
         //tmp->show_all_pos();
         if(M->block_drop(drop_point, tmp))break;
         M->check_clean();
         if(M->check4())break;
-        //M->show_map();
         delete tmp;
     }
     M->showfinal_map(fout);
-    //M->showcout_map();
+    M->showcout_map();
     return 0;
 }
+
 
