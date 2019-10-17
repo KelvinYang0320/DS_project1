@@ -32,7 +32,6 @@ class Blocks{
             name = "no_name";
             col_num = 0;
             col_height = nullptr;
-            //row_num = 0;
         }
         Blocks(char type, int rot){
             smArray = new block [4];
@@ -46,7 +45,6 @@ class Blocks{
                             smArray[3]=block(1,2);
                             name = "T1";
                             col_num = 3;
-                            //row_num=2;
                             col_height = new int [col_num];
                             col_height[0]=1;
                             col_height[1]=0;
@@ -59,7 +57,6 @@ class Blocks{
                             smArray[3]=block(2,1);
                             name = "T2";
                             col_num=2;
-                            //row_num=3;
                             col_height = new int [col_num];
                             col_height[0]=1;
                             col_height[1]=0;
@@ -71,7 +68,6 @@ class Blocks{
                             smArray[3]=block(1,1);
                             name = "T3";
                             col_num=3;
-                            //row_num=2;
                             col_height = new int [col_num];
                             col_height[0]=0;
                             col_height[1]=0;
@@ -84,7 +80,6 @@ class Blocks{
                             smArray[3]=block(2,0);
                             name = "T4";
                             col_num=2;
-                            //row_num=3;
                             col_height = new int [col_num];
                             col_height[0]=0;
                             col_height[1]=1;
@@ -103,7 +98,6 @@ class Blocks{
                             smArray[3]=block(2,0);
                             name = "L1";
                             col_num=2;
-                            //row_num=3;
                             col_height = new int [col_num];
                             col_height[0]=0;
                             col_height[1]=0;
@@ -115,7 +109,6 @@ class Blocks{
                             smArray[3]=block(1,2);
                             name = "L2";
                             col_num=3;
-                            //row_num=2;
                             col_height = new int [col_num];
                             col_height[0]=0;
                             col_height[1]=1;
@@ -128,7 +121,6 @@ class Blocks{
                             smArray[3]=block(2,1);
                             name = "L3";
                             col_num=2;
-                            //row_num=3;
                             col_height = new int [col_num];
                             col_height[0]=2;
                             col_height[1]=0;
@@ -140,7 +132,6 @@ class Blocks{
                             smArray[3]=block(1,2);
                             name = "L4";
                             col_num=3;
-                            //row_num=2;
                             col_height = new int [col_num];
                             col_height[0]=0;
                             col_height[1]=0;
@@ -160,7 +151,6 @@ class Blocks{
                             smArray[3]=block(2,1);
                             name = "J1";
                             col_num=2;
-                            //row_num=3;
                             col_height = new int [col_num];
                             col_height[0]=0;
                             col_height[1]=0;
@@ -172,7 +162,6 @@ class Blocks{
                             smArray[3]=block(1,0);
                             name = "J2";
                             col_num=3;
-                            //row_num=2;
                             col_height = new int [col_num];
                             col_height[0]=0;
                             col_height[1]=0;
@@ -185,7 +174,6 @@ class Blocks{
                             smArray[3]=block(2,1);
                             name = "J3";
                             col_num=2;
-                            //row_num=3;
                             col_height = new int [col_num];
                             col_height[0]=0;
                             col_height[1]=2;
@@ -197,7 +185,6 @@ class Blocks{
                             smArray[3]=block(1,2);
                             name = "J4";
                             col_num=3;
-                            //row_num=2;
                             col_height = new int [col_num];
                             col_height[0]=1;
                             col_height[1]=1;
@@ -217,7 +204,6 @@ class Blocks{
                             smArray[3]=block(1,2);
                             name = "S1";
                             col_num=3;
-                            //row_num=2;
                             col_height = new int [col_num];
                             col_height[0]=0;
                             col_height[1]=0;
@@ -230,7 +216,6 @@ class Blocks{
                             smArray[3]=block(2,0);
                             name = "S2";
                             col_num=2;
-                            //row_num=3;
                             col_height = new int [col_num];
                             col_height[0]=1;
                             col_height[1]=0;
@@ -249,7 +234,6 @@ class Blocks{
                             smArray[3]=block(1,1);
                             name = "Z1";
                             col_num=3;
-                            //row_num=2;
                             col_height = new int [col_num];
                             col_height[0]=1;
                             col_height[1]=0;
@@ -262,7 +246,6 @@ class Blocks{
                             smArray[3]=block(2,1);
                             name = "Z2";
                             col_num=2;
-                            //row_num=3;
                             col_height = new int [col_num];
                             col_height[0]=0;
                             col_height[1]=1;
@@ -281,7 +264,6 @@ class Blocks{
                             smArray[3]=block(3,0);
                             name = "I1";
                             col_num=1;
-                            //row_num=4;
                             col_height = new int [col_num];
                             col_height[0]=0;
                             break;
@@ -292,7 +274,6 @@ class Blocks{
                             smArray[3]=block(0,3);
                             name = "I2";
                             col_num=4;
-                            //row_num=1;
                             col_height = new int [col_num];
                             col_height[0]=0;
                             col_height[1]=0;
@@ -311,7 +292,6 @@ class Blocks{
                     smArray[3]=block(1,1);
                     name = "O";
                     col_num=2;
-                    //row_num=2;
                     col_height = new int [col_num];
                     col_height[0]=0;
                     col_height[1]=0;
@@ -337,7 +317,6 @@ class Blocks{
         block *smArray;
         string name;
         int col_num;
-        //int row_num;
         int *col_height;
 };
 class Map{
@@ -364,10 +343,6 @@ class Map{
             for(int i=0;i<Map_c;i++){
                 m[Map_r+3][i]=0;
             }
-            /*
-            cout<<"["<<row_pos<<"]"<<endl;
-            show_map();
-            */
         };
         void check_clean(void){
             int cnt;
@@ -466,7 +441,7 @@ int main(void)
 {
     fstream fin;
     fstream fout;
-    //fin.open("Project1_testcase/106000240/Tetris.data",ios::in);
+    //fin.open("Project1_testcase/210510232/Tetris.data",ios::in);
     fin.open("Tetris.data",ios::in);
     fout.open("Tetris.final",ios::out);
     int Map_r, Map_c;
