@@ -371,7 +371,7 @@ class Map{
         };
         void check_clean(void){
             int cnt;
-            for(int i = 0; i<Map_r+4; i++){
+            for(int i = 0; i<Map_r; i++){
                 cnt=0;
                 for(int j =0; j<Map_c;j++){
                     cnt=cnt+m[i][j];
@@ -466,9 +466,9 @@ int main(void)
 {
     fstream fin;
     fstream fout;
+    //fin.open("Project1_testcase/106000240/Tetris.data",ios::in);
     fin.open("Tetris.data",ios::in);
-    //fin.open("3.data",ios::in);
-    fout.open("Tetris.output",ios::out);
+    fout.open("Tetris.final",ios::out);
     int Map_r, Map_c;
     int row, col;
     char block_type;
@@ -479,7 +479,6 @@ int main(void)
     fin>>Map_r>>Map_c;
     //cout<<"Map Size:"<<Map_r<<"*"<<Map_c<<endl;
     M=new Map(Map_r, Map_c);
-    //M->show_map();
     while(1){
         fin>>block_type;
         if(block_type == 'E') break;
@@ -500,9 +499,10 @@ int main(void)
         M->check_clean();
         if(M->check4())break;
         delete tmp;
+        //M->show_map();
     }
     M->showfinal_map(fout);
-    //M->showcout_map();
+    M->showcout_map();
     return 0;
 }
 
